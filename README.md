@@ -1,7 +1,6 @@
 # orders_application
-angular application
 
-Angular web application which displays orders, products and customers.
+Angular application which displays orders, products and customers.
 A user can:
 - login/logout
 - signup
