@@ -1,0 +1,109 @@
+<div id="cont-product" class="jumbotron">
+
+
+    <br />
+
+    <p id="title">Products</p> 
+
+    <br />
+    <br />
+
+    <input id="filter" type="text"  class="form-control" placeholder="Search..." ng-model="productFilter" />
+
+    <br />
+    <br />
+
+    <form name="addProductForm" ng-submit="addProduct()" novalidate>
+        <table class="table table-striped">
+
+            <tr>
+                <th ng-click="doSort('id')">#</th>
+                <th ng-click="doSort('name')">Name</th>
+                <th ng-click="doSort('category')">Category</th>
+                <th ng-click="doSort('colors')">Colors</th>
+                <th ng-click="doSort('sizes')">Sizes</th>
+                <th ng-click="doSort('price')">Price</th>
+                <th ng-click="doSort('nbInStock')">Stock</th>
+                <th>Action</th>
+            </tr>
+            <tr class="tr" ng-repeat="product in products | filter:productFilter | orderBy:sortBy:reverse">
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.colors.toString()}}</td>
+                <td>{{product.sizes.toString()}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.nbInStock}}</td>
+                <td class="center"><img src="lib\fonts\glyphicon_remove.png" ng-click="deleteProduct(product.id)" popover="Delete" popover-trigger="mouseenter"></img></td>  
+            </tr>
+
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>  
+                    <fieldset class="form-group">
+                        <textarea id="box-form" ng-model="productToAdd.name" class="form-control" placeholder="Name..."  required></textarea>
+                    </fieldset>
+                </td>
+
+                <td> 
+                    <fieldset class="form-group">                    
+                        <select ng-model="productToAdd.category" class="form-control" placeholder="Category..."  required>
+                            <option ng-selected="{{category == productToAdd.category}}" ng-repeat="category in categories" value="{{category}}" >{{category}}</option>
+                        </select>
+                    </fieldset>
+                </td>
+
+                <td>  
+                    <fieldset class="form-group">
+                        <select multiple ng-model="productToAdd.colors" class="form-control" placeholder="Color..."  required>
+                            <option value="Black">Black</option>
+                            <option value="White">White</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Green">Green</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Red">Red</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Maroon">Maroon</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Grey">Grey</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                        </select>
+                    </fieldset>
+                </td>
+
+                <td> 
+                    <fieldset class="form-group">                    
+                        <select multiple ng-model="productToAdd.sizes" class="form-control" placeholder="Sizes..."  required>
+                            <option ng-repeat="size in sizes" value="{{size}}" >{{size}}</option>
+                        </select>
+                    </fieldset>
+                </td>
+
+                <td> 
+                    <fieldset class="form-group">
+                        <textarea id="box-form" ng-model="productToAdd.price" class="form-control" placeholder="Price..."  required></textarea>
+                    </fieldset>
+                </td>
+
+                <td> 
+                    <fieldset class="form-group">
+                        <textarea id="box-form" ng-model="productToAdd.nbInStock" class="form-control" placeholder="Stock..."  required></textarea>
+                    </fieldset>
+                </td>
+
+                <td> 
+                    <fieldset class="form-group">
+                        <input id="addProduct" type="submit" class="btn btn-primary" value="Add" />
+                    </fieldset>
+                </td>        
+            </tr>
+
+        </table>
+    </form>
+    <br />
+
+</div>

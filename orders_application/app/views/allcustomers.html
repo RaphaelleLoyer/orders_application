@@ -1,0 +1,82 @@
+<div id="cont" class="jumbotron">
+
+
+    <p id="title">Customers</p>
+
+    <br /><br />
+
+    <input id="filter" type="text"  class="form-control" placeholder="Search..."ng-model="customerFilter" />
+
+    <br /><br />
+
+
+        <form name="addCustomerForm" ng-submit="addCustomer()" novalidate>
+            <table class="table">
+                <tr>
+                    <th ng-click="doSort('id')">#</th>
+                    <th ng-click="doSort('lastname')">LastName</th>
+                    <th ng-click="doSort('firstname')">FirstName</th>
+                    <th ng-click="doSort('city')">City</th>
+                    <th ng-click="doSort('date')">Date of Birth</th>
+                    <th>Orders</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr class="tr" ng-repeat="customer in customers | filter:customerFilter | orderBy:sortBy:reverse" ng-click="goCustomer(customer.id)" >
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.lastname}}</td>
+                    <td>{{customer.firstname}}</td>
+                    <td>{{customer.city}}</td>
+                    <td>{{customer.date | date}}</td>
+                    <td><a>View Orders</a></td>
+                    <td class="center"><div><span data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Delete"><img src="lib\fonts\glyphicon_remove.png" ng-click="deleteCustomer($event,customer.id)" ></img></span></div></td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;</td>
+
+                    <td>
+                        <fieldset class="form-group">
+                            <textarea id="box-form" name ="name" ng-model="customerToAdd.lastname" class="form-control" placeholder="Lastname..."  required></textarea>
+                        </fieldset>
+                    </td>
+
+                    <td>
+                        <fieldset class="form-group">
+                            <textarea id="box-form" ng-model="customerToAdd.firstname" class="form-control" placeholder="Firstname..."  required></textarea>
+                        </fieldset>
+                    </td>
+
+                    <td>
+                        <fieldset class="form-group">
+                            <select ng-model="customerToAdd.city" class="form-control" placeholder="City..."  required>
+                                <option value="Paris">Paris</option>
+                                <option value="Lyon">Lyon</option>
+                                <option value="Bordeaux">Bordeaux</option>
+                                <option value="Marseilles">Marseilles</option>
+                                <option value="Nantes">Nantes</option>
+                            </select>
+                        </fieldset>
+                    </td>
+
+                    <td>
+                      <fieldset class="form-group">
+                        <input type="text" class="form-control" ng-model="myDate" datepicker-popup="yyyy-MM-dd" datepicker-append-to-body="true" ng-click="open()" is-open="popup.opened" required="true"  />
+                      </fieldset>
+                    </td>
+
+                    <td>&nbsp;</td>
+
+                    <td>
+                        <fieldset class="form-group">
+                            <input type="submit" class="btn btn-primary " value="Add" />
+                        </fieldset>
+                    </td>
+                </tr>
+
+            </table>
+    </form>
+
+    <br /><br /><br /><br /><br />
+
+</div>

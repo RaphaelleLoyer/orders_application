@@ -1,0 +1,64 @@
+<br />
+<p id="title">Customer #{{ customer.id}} </p>
+
+<div class="container-cust">
+    <div class="description">
+
+         <table class="table">
+            <tr> 
+                <th id="tab">#</th>
+                <td id="tab">{{customer.id}}</td>
+            </tr>
+            <tr>
+                <th id="tab">Lastname</th>
+                <td id="tab">{{customer.lastname}}</td>
+            </tr>
+            <tr>
+                <th id="tab">Firstname</th>
+                <td id="tab">{{customer.firstname}}</td>
+            </tr>
+            <tr>
+                <th id="tab">Date of Birth</th>
+                <td id="tab">{{customer.date | date}}</td>
+            </tr>
+            <tr>
+                <th id="tab">City</th>
+                <td id="tab">{{customer.city}}</td>
+            </tr>
+            <tr>
+                <th id="tab">Number of orders</th> 
+                <td id="tab">{{customer.orders.length}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <br />
+    <br />
+
+    <div class="orders"> 
+        <p id="titre-2">Orders</p>
+
+        <table class="table">
+            <tr> 
+                <th>#</th>
+                <th>Date</th>
+                <th>Number of Items</th>
+                <th>Status</th>
+                <th>Total</th>            
+            </tr>
+            <tr ng-repeat="order in customer.orders">
+                <td>{{order.id}}</td>
+                <td>{{order.date | date}}</td>
+                <td>{{order.items.length}}</td>
+                <td>{{order.status}}</td>
+                <td>{{order.total}}</td>        
+            </tr>
+        </table>
+    </div>
+    
+</div>
+
+<br />
+<br />
+<br />

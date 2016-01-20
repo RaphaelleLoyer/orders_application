@@ -1,0 +1,148 @@
+#logcont{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 1%;
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 6px;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+#signupbutton{
+    width: 225px;
+    height: 75px;
+    align-content: center;
+    padding-top : 20px;
+    font-size : 25px;
+    margin-left: 35%;
+}
+
+#cont{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 6px;
+}
+
+#cont-product{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 6px;
+}
+
+#cont-cust{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;  
+    padding-right: 60px;
+    padding-left: 60px;
+    border-radius: 6px;
+}
+
+.input-sm{
+   border: 1px solid #CCC;
+   border-radius: 4px;
+}
+
+#title{
+    margin-left: 10px;
+    font-size: 50px;
+}
+
+#filter{
+    margin-left: 10px;
+    width:350px;
+}
+
+#version{
+    margin-left: 10px;
+    font-style: italic;
+}
+
+#box-form{
+    height: 34px;
+}
+
+option:selected { color: red; }
+
+.tr:hover {
+    background-color: #F0F8FF;
+}
+
+#link{
+    text-decoration: underline;
+    color: #000080;
+}
+
+#soustitre{
+    font-size: 20px;
+    margin-left: 25px;
+    font-style: italic;
+    position: absolute;
+    right: 2.5%;
+}
+
+#titre-2{
+    font-size: 25px;
+    font-style: italic;
+    padding-left: 5px;
+}
+
+#totalTable{
+    width: 250px;
+    right: 0px;
+    position: absolute;
+    margin-right: 50px;
+}
+
+#totalRow{
+    text-align: right;
+}
+
+#tab{
+    border-color: white;
+}
+
+.orders{
+	border: 2px solid #F0F8FF;
+	min-height: 10px;
+    padding: 0px;
+	border-radius: 1px;
+	font-family: sans-serif;
+	color: #333333;
+	position: relative;
+	word-wrap: break-word;
+	background-color: #F0F8FF;	
+}
+
+.container-cust{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 1%;
+	min-height: 10px;
+    padding: 0px;
+	font-family: sans-serif;
+	color: #333333;
+	position: relative;
+	word-wrap: break-word;
+}
+
+.description{
+    border-left: 1px solid grey;
+    width: 35%;
+    min-height: 10px;
+    margin-top: 1%;
+	margin-right: 1%;
+	margin-bottom: 1%;
+    font-size: 20px;
+    padding-left: 1%;
+    padding-bottom: 2px;
+}

@@ -1,0 +1,77 @@
+<div id="cont" class="jumbotron">
+
+
+    <br />
+    <p id="title">Orders</p>
+    <br />
+    <br />
+    <input id="filter" type="text"  class="form-control" ng-model="orderFilter" placeholder="Search..." />
+    <br />
+    <br />
+
+    <form name="addOrderForm" ng-submit="addOrder()" novalidate>
+        <table class="table">
+            <tr>
+                <th ng-click="doSort('id')">#</th>
+                <th ng-click="doSort('date')">Date</th>
+                <th ng-click="doSort('total')">Total</th>
+                <th ng-click="doSort('status')">Status</th>
+                <th>Customer</th>
+                <th>Action</th>
+            </tr>
+            <tr class="tr" ng-repeat="order in orders | filter:orderFilter | orderBy:sortBy:reverse" ng-click="goOrder(order.id)">
+                <td><a href="#/orders/{{ order.id }}" >{{order.id}}</a></td>
+                <td>{{order.date | date}}</td>
+                <td>{{order.total}}</td>
+                <td>{{order.status}}</td>
+                <td ng-click="goCustomer($event,order.id)" ><a>{{ getCustomerName(order.id) }}</a></td>
+                <td class="center"><img src="lib\fonts\glyphicon_remove.png" ng-click="deleteOrder($event,order.id)" popover="Delete" popover-trigger="mouseenter"></img></td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+
+                <td>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" ng-model="myDate" datepicker-popup="yyyy-MM-dd" datepicker-append-to-body="true" ng-click="open()" is-open="popup.opened" ng-required="true"  />
+
+                    </fieldset></td>
+
+                <td>
+                    <fieldset class="form-group">
+                        <textarea id="box-form" ng-model="orderToAdd.total" class="form-control" placeholder="Total..." ng-required="true" ></textarea>
+                    </fieldset>
+                </td>
+
+                <td>
+                    <fieldset class="form-group">
+                        <select ng-model="orderToAdd.status" class="form-control"  required>
+                            <option value="Ordered">Ordered</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                            <option value="Canceled">Canceled</option>
+                        </select>
+                    </fieldset>
+                </td>
+
+                <td>
+                    <fieldset class="form-group">
+                        <select ng-model="customerId" class="form-control" required>
+                            <option ng-selected="{{customer.id == customerId}}" ng-repeat="customer in customers" value="{{customer.id}}" >{{customer.firstname }} {{ customer.lastname }}</option>
+                        </select>
+                    </fieldset>
+                </td>
+
+                <td>
+                    <fieldset class="form-group">
+                        <input id="addOrder" type="submit" class="btn btn-primary" value="Add" />
+                    </fieldset>
+                </td>
+                
+            </tr>
+        </table>
+    </form>
+    <br />
+
+
+</div>

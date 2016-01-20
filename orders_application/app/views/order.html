@@ -1,0 +1,42 @@
+<div id="cont-product" class="jumbotron">
+    <br />
+    <p id="title">Order #{{ order.id}} -  {{order.date | date}} </p>
+    <p id="soustitre"> Customer #{{customer.id}}, {{customer.firstname}} {{customer.lastname}} </p>
+    <br /><br />
+    <br /><br />
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+        </tr>
+        <tr ng-repeat="item in order.items">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price | currency }}</td>
+            <td>{{ item.price*item.quantity | currency }}</td>
+        </tr>
+    </table> 
+
+    <br /><br />
+
+    <table id="totalTable" class="table">
+         <tr>
+            <th>Status</td>
+            <td id="totalRow">{{ order.status }}</td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td id="totalRow">{{ order.total | currency }}</th>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+    <br />
+</div>

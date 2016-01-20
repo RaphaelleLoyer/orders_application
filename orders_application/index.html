@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="scripts/css/style.css">
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+        
+        <!-- JS  -->
+		<script type="text/javascript" src="lib/angular/angular.js"></script>
+        <script type="text/javascript" src="lib/angular/angular-route.js"></script>
+        <script type="text/javascript" src="lib/angular/angular-local-storage.js"></script>
+        <script type="text/javascript" src="lib/bootstrap/ui-bootstrap-tpls-0.13.4.min.js"></script>
+        
+        <!-- APP -->
+        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="app/controllers/mainController.js"></script>
+        <script type="text/javascript" src="app/controllers/navController.js"></script>
+        <script type="text/javascript" src="app/controllers/homeController.js"></script>
+        <script type="text/javascript" src="app/controllers/categoriesController.js"></script>
+        <script type="text/javascript" src="app/controllers/categoryController.js"></script>
+        <script type="text/javascript" src="app/controllers/allProductsController.js"></script>
+        <script type="text/javascript" src="app/controllers/allOrdersController.js"></script>
+        <script type="text/javascript" src="app/controllers/allCustomersController.js"></script>
+        <script type="text/javascript" src="app/controllers/orderController.js"></script>
+        <script type="text/javascript" src="app/controllers/customerController.js"></script>
+        <script type="text/javascript" src="app/controllers/loginController.js"></script>
+        <script type="text/javascript" src="app/controllers/signupController.js"></script>
+        <script type="text/javascript" src="app/factories/commonFactory.js"></script>
+
+    </head>
+    
+    <body ng-controller="MainController">
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#/login">Angular app</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <div ng-hide="isHidden()">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#/home">Home</a></li>
+                                <li><a href="#/allorders">Orders</a></li>
+                                <li><a href="#/allcustomers">Customers</a></li>
+                                <li><a href="#/allproducts">Products</a></li>
+
+                                <li class="dropdown" dropdown>
+                                    <a href="#/categories" type="button" class="dropdown-toggle" dropdown-toggle>Categories<span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#/categories">All categories</a></li>
+                                        <li class="divider"></li>
+                                        <li class="dropdown-header">Categories</li>
+                                        <li><a href="#/category/{{category}}" ng-repeat="category in categories" value="{{category}}">{{category}}</a></li>
+                                    </ul>
+                                </li>
+                            </ul>    
+                            <div ng-model="signoutbutton" ng-click="signout()">
+                                <ul class="nav navbar-nav navbar-right" >
+                                  <li><a>Sign out</a></li>
+                                </ul> 
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        
+        <br />
+        <br />
+        <br />
+        <br />
+
+            
+        <div ng-view></div>
+
+        
+        <br />
+        <br />
+        <br />
+        <br />
+  
+        
+    </body>
+    
+</html>
+    

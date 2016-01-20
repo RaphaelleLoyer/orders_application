@@ -1,0 +1,35 @@
+<br />
+
+<div class="container">
+
+    <div class="jumbotron">
+        <p id="title">{{ category }}</p>
+        <br />
+        <br />
+        <br />
+        
+        <table class="table table-striped">
+
+            <tr>
+                <th ng-click="doSort('id')">#</th>
+                <th ng-click="doSort('name')">Name</th>
+                <th ng-click="doSort('category')">Category</th>
+                <th ng-click="doSort('colors')">Colors</th>
+                <th ng-click="doSort('sizes')">Sizes</th>
+                <th ng-click="doSort('price')">Price</th>
+                <th ng-click="doSort('nbInStock')">Stock</th>
+            </tr>
+            <tr class="tr" ng-repeat="product in products | orderBy:sortBy:reverse"> 
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.colors.toString()}}</td>
+                <td>{{product.sizes.toString()}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.nbInStock}}</td>  
+            </tr>
+
+        </table>
+        
+    </div>
+</div>
