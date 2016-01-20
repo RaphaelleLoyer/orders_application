@@ -12,5 +12,5 @@ A user can:
 - see a specific customer by clicking on it in the list of customers
 
 I needed a backend application and a database to deal with in order to test this angular application.
-For that I have installed and used MONGO locally and I have created a NodeJS application to deal with MONGO. I wont provide my NodeJs application here.
+For that I have installed and used MONGO locally and I have created a NodeJS/ExpressJS application to deal with MONGO. I wont provide my NodeJs implementation here.
 
