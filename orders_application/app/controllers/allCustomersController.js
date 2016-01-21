@@ -66,36 +66,18 @@
 
         //addCustomer to database using commonFactory factory
         $scope.addCustomer = function() {
-            
-            if(isCustomerReady()){
-                $scope.customerToAdd.date = new Date($scope.myDate);
-                commonFactory.addCustomer(this.customerToAdd)
-                    .success(function (status) {
-                        if (status) {
-                            clearFields();
-                            init();
-                        }
-                })
-                .error(function (data, status, headers, config) {
-                        $log.log('Customer not added');
-                });
-            }
-
+            $scope.customerToAdd.date = new Date($scope.myDate);
+            commonFactory.addCustomer(this.customerToAdd)
+                .success(function (status) {
+                    if (status) {
+                        clearFields();
+                        init();
+                    }
+            })
+            .error(function (data, status, headers, config) {
+                    $log.log('Customer not added');
+            });
         };
-        
-        //Check that all the input are filled
-        function isCustomerReady(){
-            if($scope.customerToAdd != null){
-                if($scope.customerToAdd.city != null && $scope.myDate != null && $scope.customerToAdd.firstname != null && $scope.customerToAdd.lastname != null){
-                    return true;
-                }else{
-                    alert('Some fields are missing');
-                    return false;
-                }
-            }else{
-                return false;
-            }
-        }
         
         //clear input fields after submission of the form
         function clearFields() {

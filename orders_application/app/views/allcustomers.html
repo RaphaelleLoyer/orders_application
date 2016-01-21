@@ -10,7 +10,7 @@
     <br /><br />
 
 
-        <form name="addCustomerForm" ng-submit="addCustomer()" novalidate>
+        <form name="addCustomerForm" ng-submit="addCustomer()">
             <table class="table">
                 <tr>
                     <th ng-click="doSort('id')">#</th>
@@ -37,24 +37,20 @@
 
                     <td>
                         <fieldset class="form-group">
-                            <textarea id="box-form" name ="name" ng-model="customerToAdd.lastname" class="form-control" placeholder="Lastname..."  required></textarea>
+                            <textarea type="text" id="box-form" name="name" ng-model="customerToAdd.lastname" class="form-control" placeholder="Lastname..."  required></textarea>
                         </fieldset>
                     </td>
 
                     <td>
                         <fieldset class="form-group">
-                            <textarea id="box-form" ng-model="customerToAdd.firstname" class="form-control" placeholder="Firstname..."  required></textarea>
+                            <textarea type="text" id="box-form" ng-model="customerToAdd.firstname" class="form-control" placeholder="Firstname..."  required></textarea>
                         </fieldset>
                     </td>
 
                     <td>
                         <fieldset class="form-group">
-                            <select ng-model="customerToAdd.city" class="form-control" placeholder="City..."  required>
-                                <option value="Paris">Paris</option>
-                                <option value="Lyon">Lyon</option>
-                                <option value="Bordeaux">Bordeaux</option>
-                                <option value="Marseilles">Marseilles</option>
-                                <option value="Nantes">Nantes</option>
+                            <select name="city" ng-model="customerToAdd.city" ng-options="opt for opt in ['Paris','Lyon','Bordeaux','Marseilles','Nantes']" class="form-control" placeholder="City..."  required>
+                                <option></option>
                             </select>
                         </fieldset>
                     </td>

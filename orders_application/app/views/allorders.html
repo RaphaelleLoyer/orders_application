@@ -9,7 +9,7 @@
     <br />
     <br />
 
-    <form name="addOrderForm" ng-submit="addOrder()" novalidate>
+    <form name="addOrderForm" ng-submit="addOrder()">
         <table class="table">
             <tr>
                 <th ng-click="doSort('id')">#</th>
@@ -33,31 +33,27 @@
 
                 <td>
                     <fieldset class="form-group">
-                        <input type="text" class="form-control" ng-model="myDate" datepicker-popup="yyyy-MM-dd" datepicker-append-to-body="true" ng-click="open()" is-open="popup.opened" ng-required="true"  />
-
+                        <input type="text" class="form-control" ng-model="myDate" datepicker-popup="yyyy-MM-dd" datepicker-append-to-body="true" ng-click="open()" is-open="popup.opened" required />
                     </fieldset></td>
 
                 <td>
                     <fieldset class="form-group">
-                        <textarea id="box-form" ng-model="orderToAdd.total" class="form-control" placeholder="Total..." ng-required="true" ></textarea>
+                        <textarea id="box-form" ng-model="orderToAdd.total" class="form-control" placeholder="Total..." required></textarea>
                     </fieldset>
                 </td>
 
                 <td>
                     <fieldset class="form-group">
-                        <select ng-model="orderToAdd.status" class="form-control"  required>
-                            <option value="Ordered">Ordered</option>
-                            <option value="Shipped">Shipped</option>
-                            <option value="Delivered">Delivered</option>
-                            <option value="Canceled">Canceled</option>
+                        <select name="status" ng-model="orderToAdd.status" class="form-control" ng-options="opt for opt in ['Ordered','Shipped','Delivered','Canceled']" required>
+                            <option></option>
                         </select>
                     </fieldset>
                 </td>
 
                 <td>
                     <fieldset class="form-group">
-                        <select ng-model="customerId" class="form-control" required>
-                            <option ng-selected="{{customer.id == customerId}}" ng-repeat="customer in customers" value="{{customer.id}}" >{{customer.firstname }} {{ customer.lastname }}</option>
+                        <select name="fullname" ng-model="customerId" class="form-control" ng-options='customer.id as (customer.firstname + " " + customer.lastname) for customer in customers' required>
+                            <option></option>
                         </select>
                     </fieldset>
                 </td>

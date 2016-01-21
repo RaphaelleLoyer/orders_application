@@ -89,7 +89,6 @@
         
         //add an order to database using factory
         $scope.addOrder = function() {
-            $log.log('Order: '+ $scope.orderToAdd.total + ' into customer : ' + $scope.customerId);
             $scope.orderToAdd.date = new Date($scope.myDate);
             commonFactory.addOrder(this.orderToAdd,this.customerId)
                 .success(function (status) {
